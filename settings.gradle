@@ -1,1 +1,1 @@
-include ':app'
+include ':我的红包', ':library', ':app', ':TabbedCoordinatorLayout', ':scrollablelayout'

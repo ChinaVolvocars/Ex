@@ -3,13 +3,30 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
+//    compileSdkVersion TARGET_SDK as int
+//    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
-        applicationId "com.mh.ex"
+        applicationId "ru.noties.scrollable.sample"
         minSdkVersion 19
         targetSdkVersion 23
+
+//        minSdkVersion MIN_SDK as int
+//        targetSdkVersion TARGET_SDK as int
         versionCode 1
         versionName "1.0"
+
+        final def minFriction = 0.0F
+        final def startFriction = 0.015F
+        final def frictionStep = 0.0025F
+        final def maxFrictionSteps = 200
+
+        resValue 'string', 'min_friction_text', "${minFriction}F"
+        resValue 'integer', 'max_friction_steps', "$maxFrictionSteps"
+
+        buildConfigField 'float', 'MIN_FRICTION', minFriction + 'F'
+        buildConfigField 'float', 'START_FRICTION', startFriction + 'F'
+        buildConfigField 'float', 'FRICTION_STEP', frictionStep + 'F'
     }
     buildTypes {
         release {
@@ -21,7 +38,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile files('libs/nineoldandroids-2.4.0.jar')
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:recyclerview-v7:23.1.0'
+
+    compile project(':library')
 }
