@@ -61,20 +61,23 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         pfl_root = (PtrClassicFrameLayout) findViewById(R.id.pfl_root);
         sl_root = (ScrollableLayout) findViewById(R.id.sl_root);
         vp_scroll = (ViewPager) findViewById(R.id.vp_scroll);
+
         tv_title = (TextView) findViewById(R.id.tv_title);
         tv_right = (TextView) findViewById(R.id.tv_right);
         iv_spit = (ImageView) findViewById(R.id.iv_spit);
         tv_name = (TextView) findViewById(R.id.tv_name);
+
         tv_signature = (TextView) findViewById(R.id.tv_signature);
         iv_avatar = (ImageView) findViewById(R.id.iv_avatar);
 
         ly_page1 = (RelativeLayout) findViewById(R.id.ly_page1);
         tv_page1 = (TextView) findViewById(R.id.tv_page1);
+
         ly_page2 = (RelativeLayout) findViewById(R.id.ly_page2);
         tv_page2 = (TextView) findViewById(R.id.tv_page2);
 
         iv_spit.setVisibility(View.GONE);
-        tv_title.setTranslationY(-1000);
+       tv_title.setTranslationY(-1000);
         sl_root.setOnScrollListener(new ScrollableLayout.OnScrollListener() {
             @Override
             public void onScroll(int translationY, int maxY) {
@@ -102,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
                 iv_spit.getBackground().setAlpha(alpha);
 
-                tv_title.setTranslationY(Math.max(0, maxScrollHeight + translationY));
+               tv_title.setTranslationY(Math.max(0, maxScrollHeight + translationY));
             }
         });
 

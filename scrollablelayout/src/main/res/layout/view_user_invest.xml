@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#DA3412"
+    android:orientation="vertical"
+    android:paddingTop="15dp">
+
+
+    <TextView
+        android:id="@+id/tv_grandtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="累计总收益 >"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/tv_grandtotal_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dp"
+        android:text="0.00元"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="本月待收金额（元）"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_uncollected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:text="￥0.00"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:background="#fff" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="本月回款金额（元）"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_collected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:text="￥0.00"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

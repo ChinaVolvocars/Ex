@@ -32,11 +32,11 @@
                 android:id="@+id/iv_page1_expand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
                 android:src="@mipmap/icon_expand_select"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/tv_page1" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -69,7 +69,7 @@
     <ImageView
         android:id="@+id/iv_spit"
         android:layout_width="match_parent"
-        android:layout_height="0.6dp"
+        android:layout_height="3dp"
         android:layout_below="@+id/tv_signature"
         android:layout_marginTop="12dp"
         android:background="#aac6c6c6" />
