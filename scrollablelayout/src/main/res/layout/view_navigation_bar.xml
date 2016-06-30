@@ -54,7 +54,7 @@
                     android:layout_centerInParent="true"
                     android:text="已完成"
                     android:textColor="#cbcbcb"
-                    android:textSize="14sp" />
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:id="@+id/iv_page2_expand"

@@ -11,9 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * Created by sj on 15/11/26.
- */
 public abstract class RecyclerLoadMoreAdapater<T> extends RecyclerView.Adapter {
 
     private static final int TYPE_FOOTER = Integer.MIN_VALUE + 1;

@@ -8,4 +8,10 @@
     <color name="green">#6d6d6d</color>
     <color name="red_bottom">#EFA39A</color>
     <color name="gray_white">#CBCBCB</color>
+
+    <!-- 我的投资 -->
+
+    <color name="text_invest_color1">#6d6d6d</color>
+    <color name="text_invest_color2">#cbcbcb</color>
+
 </resources>

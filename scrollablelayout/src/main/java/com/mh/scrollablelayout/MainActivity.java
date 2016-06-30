@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         tv_page2 = (TextView) findViewById(R.id.tv_page2);
 
         iv_spit.setVisibility(View.GONE);
-       tv_title.setTranslationY(-1000);
+        tv_title.setTranslationY(-1000);
         sl_root.setOnScrollListener(new ScrollableLayout.OnScrollListener() {
             @Override
             public void onScroll(int translationY, int maxY) {
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
                 iv_spit.getBackground().setAlpha(alpha);
 
-               tv_title.setTranslationY(Math.max(0, maxScrollHeight + translationY));
+                tv_title.setTranslationY(Math.max(0, maxScrollHeight + translationY));
             }
         });
 
@@ -116,10 +116,11 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         CommonFragementPagerAdapter commonFragementPagerAdapter = new CommonFragementPagerAdapter(getSupportFragmentManager());
         fragmentList.add(RecyclerViewSimpleFragment.newInstance());
-        fragmentList.add(RecyclerViewGridSimpleFragment.newInstance());
+        fragmentList.add(RecyclerViewSimpleFragment2.newInstance());
         vp_scroll.setAdapter(commonFragementPagerAdapter);
         vp_scroll.addOnPageChangeListener(this);
         sl_root.getHelper().setCurrentScrollableContainer(fragmentList.get(0));
+
 
         tv_right.setOnClickListener(this);
         tv_signature.setOnClickListener(this);
@@ -154,6 +155,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
         if (vp_scroll.getCurrentItem() == 0 && sl_root.isCanPullToRefresh()) {
+            return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
+        }
+        if (vp_scroll.getCurrentItem() == 1 && sl_root.isCanPullToRefresh()) {
             return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
         }
         return false;

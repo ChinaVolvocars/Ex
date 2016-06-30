@@ -2,7 +2,6 @@ package com.mh.scrollablelayout;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,16 +14,13 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class RecyclerViewGridSimpleFragment extends BaseFragment {
+public class RecyclerViewGridSimpleFragment2 extends BaseFragment {
 
     private View view;
     private RecyclerView recyclerView;
 
-    public static RecyclerViewGridSimpleFragment newInstance() {
-        RecyclerViewGridSimpleFragment fragment = new RecyclerViewGridSimpleFragment();
+    public static RecyclerViewGridSimpleFragment2 newInstance() {
+        RecyclerViewGridSimpleFragment2 fragment = new RecyclerViewGridSimpleFragment2();
         return fragment;
     }
 
@@ -46,6 +42,79 @@ public class RecyclerViewGridSimpleFragment extends BaseFragment {
         PhotoAdapter recyclerAdapter = new PhotoAdapter();
         recyclerAdapter.setPhotos(createItemList());
         recyclerView.setAdapter(recyclerAdapter);
+    }
+
+
+    @Override
+    public View getScrollableView() {
+        return recyclerView;
+    }
+
+    @Override
+    public void pullToRefresh() {
+    }
+
+    @Override
+    public void refreshComplete() {
+        if (getActivity() instanceof MainActivity) {
+            ((MainActivity) getActivity()).refreshComplete();
+        }
+    }
+
+    public class RecyclerBean {
+        public String title;
+        public int icon;
+
+        public RecyclerBean(String title, int icon) {
+            this.title = title;
+            this.icon = icon;
+        }
+    }
+
+    public class PhotoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+        protected PhotoAdapter() {
+            super();
+        }
+
+        List<RecyclerBean> imgLists = new ArrayList<>();
+
+        public void setPhotos(List<RecyclerBean> photos) {
+            imgLists = photos;
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public PhotoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new PhotoViewHolder(parent);
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            if (holder instanceof PhotoViewHolder) {
+                ((PhotoViewHolder) holder).image.setTag(R.id.tag_item, position);
+                Glide.with(holder.itemView.getContext())
+                        .load(imgLists.get(position).icon)
+                        .centerCrop()
+                        .crossFade()
+                        .dontAnimate()
+                        .into(((PhotoViewHolder) holder).image);
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return imgLists == null ? 0 : imgLists.size();
+        }
+
+        public class PhotoViewHolder extends RecyclerView.ViewHolder {
+            public final ImageView image;
+
+            public PhotoViewHolder(ViewGroup parent) {
+                super(LayoutInflater.from(parent.getContext()).inflate(R.layout.griditem_image, parent, false));
+                image = (ImageView) itemView;
+            }
+        }
     }
 
     private List<RecyclerBean> createItemList() {
@@ -141,74 +210,5 @@ public class RecyclerViewGridSimpleFragment extends BaseFragment {
         list.add(new RecyclerBean("", R.drawable.g89));
         list.add(new RecyclerBean("", R.drawable.g90));
         return list;
-    }
-
-    @Override
-    public View getScrollableView() {
-        return recyclerView;
-    }
-
-    @Override
-    public void pullToRefresh() {
-    }
-
-    @Override
-    public void refreshComplete() {
-    }
-
-    public class RecyclerBean {
-        public String title;
-        public int icon;
-
-        public RecyclerBean(String title, int icon) {
-            this.title = title;
-            this.icon = icon;
-        }
-    }
-
-    public class PhotoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
-        protected PhotoAdapter() {
-            super();
-        }
-
-        List<RecyclerBean> imgLists = new ArrayList<>();
-
-        public void setPhotos(List<RecyclerBean> photos) {
-            imgLists = photos;
-            notifyDataSetChanged();
-        }
-
-        @Override
-        public PhotoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new PhotoViewHolder(parent);
-        }
-
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            if (holder instanceof PhotoViewHolder) {
-                ((PhotoViewHolder) holder).image.setTag(R.id.tag_item, position);
-                Glide.with(holder.itemView.getContext())
-                        .load(imgLists.get(position).icon)
-                        .centerCrop()
-                        .crossFade()
-                        .dontAnimate()
-                        .into(((PhotoViewHolder) holder).image);
-            }
-        }
-
-        @Override
-        public int getItemCount() {
-            return imgLists == null ? 0 : imgLists.size();
-        }
-
-        public class PhotoViewHolder extends RecyclerView.ViewHolder {
-            public final ImageView image;
-
-            public PhotoViewHolder(ViewGroup parent) {
-                super(LayoutInflater.from(parent.getContext()).inflate(R.layout.griditem_image, parent, false));
-                image = (ImageView) itemView;
-            }
-        }
     }
 }
