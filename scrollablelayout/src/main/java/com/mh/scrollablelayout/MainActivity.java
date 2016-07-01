@@ -26,6 +26,7 @@ import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 
+
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, PtrHandler, View.OnClickListener {
 
     private PtrClassicFrameLayout pfl_root;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         tv_page2 = (TextView) findViewById(R.id.tv_page2);
 
         iv_spit.setVisibility(View.GONE);
-        tv_title.setTranslationY(-1000);
+        //  tv_title.setTranslationY(-1000);
         sl_root.setOnScrollListener(new ScrollableLayout.OnScrollListener() {
             @Override
             public void onScroll(int translationY, int maxY) {
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
                 iv_spit.getBackground().setAlpha(alpha);
 
-                tv_title.setTranslationY(Math.max(0, maxScrollHeight + translationY));
+                // tv_title.setTranslationY(Math.max(0, maxScrollHeight + translationY));
             }
         });
 
@@ -130,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
     }
 
     @Override
@@ -196,6 +198,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 break;
         }
     }
+
 
     public class CommonFragementPagerAdapter extends FragmentPagerAdapter {
 

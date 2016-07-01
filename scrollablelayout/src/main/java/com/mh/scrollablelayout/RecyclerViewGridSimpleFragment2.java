@@ -56,8 +56,8 @@ public class RecyclerViewGridSimpleFragment2 extends BaseFragment {
 
     @Override
     public void refreshComplete() {
-        if (getActivity() instanceof MainActivity) {
-            ((MainActivity) getActivity()).refreshComplete();
+        if (getActivity() instanceof Main2Activity) {
+            ((Main2Activity) getActivity()).refreshComplete();
         }
     }
 

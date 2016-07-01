@@ -39,14 +39,19 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
     private TextView tv_page1;
     private TextView tv_page2;
 
+    private float titleMaxScrollHeight;
+    private float hearderMaxHeight;
+    private float avatarTop;
+    private float maxScrollHeight;
+    private TextView tv_title;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_invest);
-
-
         initView();
     }
 
@@ -61,7 +66,7 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
         findViewById(R.id.tv_uncollected);//本月待收
         findViewById(R.id.tv_collected);//本月回款
 
-        findViewById(R.id.line);
+        tv_title = (TextView) findViewById(R.id.tv_top_title);
 
         ly_page1 = (RelativeLayout) findViewById(R.id.ly_page1);
         ly_page2 = (RelativeLayout) findViewById(R.id.ly_page2);
@@ -77,6 +82,31 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
         sl_root.setOnScrollListener(new ScrollableLayout.OnScrollListener() {
             @Override
             public void onScroll(int currentY, int maxY) {
+                currentY = -currentY;
+                if (titleMaxScrollHeight == 0) {
+                    titleMaxScrollHeight = ((View) tv_title.getParent()).getBottom() - tv_title.getTop();
+                    maxScrollHeight = hearderMaxHeight + titleMaxScrollHeight;
+                }
+                if (hearderMaxHeight == 0) {
+                    //   hearderMaxHeight = tv_name.getTop();
+                    maxScrollHeight = hearderMaxHeight + titleMaxScrollHeight;
+                }
+                if (avatarTop == 0) {
+                    // avatarTop = iv_avatar.getTop();
+                }
+
+                int alpha = 0;
+                int baseAlpha = 60;
+                if (0 > avatarTop + currentY) {
+                    alpha = Math.min(255, (int) (Math.abs(avatarTop + currentY) * (255 - baseAlpha) / (hearderMaxHeight - avatarTop) + baseAlpha));
+                    //  iv_spit.setVisibility(View.VISIBLE);
+                } else {
+                    // iv_spit.setVisibility(View.GONE);
+                }
+
+                // iv_spit.getBackground().setAlpha(alpha);
+
+                // tv_title.setTranslationY(Math.max(0, maxScrollHeight + translationY));
 
             }
         });
@@ -87,15 +117,16 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
         pfl_root.setKeepHeaderWhenRefresh(true);
 
         CommAdapter commAdapter = new CommAdapter(getSupportFragmentManager());
-        fragments.add(RecyclerViewGridSimpleFragment2.newInstance());
         fragments.add(RecyclerViewSimpleFragment.newInstance());
+        fragments.add(RecyclerViewSimpleFragment2.newInstance());
 
+        vp_scroll.addOnPageChangeListener(this);
         line_width = getWindowManager().getDefaultDisplay().getWidth() / fragments.size();
         line.getLayoutParams().width = line_width;
         line.requestLayout();
 
         vp_scroll.setAdapter(commAdapter);
-        vp_scroll.addOnPageChangeListener(this);
+//        vp_scroll.addOnPageChangeListener(this);
         sl_root.getHelper().setCurrentScrollableContainer(fragments.get(0));
 
         ly_page1.setOnClickListener(this);
@@ -108,6 +139,9 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
         if (vp_scroll.getCurrentItem() == 0 && sl_root.isCanPullToRefresh()) {
             return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
         }
+        if (vp_scroll.getCurrentItem() == 1 && sl_root.isCanPullToRefresh()) {
+            return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
+        }
         return false;
     }
 
@@ -118,17 +152,13 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ly_page1:
-                vp_scroll.setCurrentItem(0);
-                break;
-            case R.id.ly_page2:
-                vp_scroll.setCurrentItem(1);
-                break;
+    public void refreshComplete() {
+        if (pfl_root != null) {
+            pfl_root.refreshComplete();
         }
     }
+
+
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -142,6 +172,7 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
     @Override
     public void onPageSelected(int position) {
         sl_root.getHelper().setCurrentScrollableContainer(fragments.get(position));
+
         changeState(position);
     }
 
@@ -167,7 +198,17 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
         }
     }
 
-
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ly_page1:
+                vp_scroll.setCurrentItem(0);
+                break;
+            case R.id.ly_page2:
+                vp_scroll.setCurrentItem(1);
+                break;
+        }
+    }
     /**
      * 根据传入的值改变状态
      *
@@ -175,7 +216,7 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
      */
     private void changeState(int position) {
         if (position == 0) {
-            tv_page1.setTextColor(getResources().getColor(R.color.text_invest_color1));//
+            tv_page1.setTextColor(getResources().getColor(R.color.text_invest_color1));
             tv_page2.setTextColor(getResources().getColor(R.color.text_invest_color2));
 
 //            tv_page1.setTextSize(getResources().getDimension(R.dimen.text_invest_size1));

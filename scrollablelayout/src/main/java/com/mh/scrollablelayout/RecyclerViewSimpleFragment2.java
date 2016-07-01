@@ -17,8 +17,7 @@ import com.mh.scrollablelayout.recyclerloadmore.RecyclerLoadMoreAdapater;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class RecyclerViewSimpleFragment extends BaseFragment {
+public class RecyclerViewSimpleFragment2 extends BaseFragment {
 
     private View view;
     private RecyclerView recyclerView;
@@ -28,8 +27,8 @@ public class RecyclerViewSimpleFragment extends BaseFragment {
     private LoadingFooter mLoadingFooter;
     private RecyclerAdapter recyclerAdapter;
 
-    public static RecyclerViewSimpleFragment newInstance() {
-        RecyclerViewSimpleFragment fragment = new RecyclerViewSimpleFragment();
+    public static RecyclerViewSimpleFragment2 newInstance() {
+        RecyclerViewSimpleFragment2 fragment = new RecyclerViewSimpleFragment2();
         return fragment;
     }
 
@@ -88,7 +87,6 @@ public class RecyclerViewSimpleFragment extends BaseFragment {
 
     @Override
     public void refreshComplete() {
-        //这个需要改一下，否则无法刷新 收起来
         if (getActivity() instanceof Main2Activity) {
             ((Main2Activity) getActivity()).refreshComplete();
         }
