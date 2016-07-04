@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/TabbedCoordinatorLayout/TabbedCoordinatorLayout.iml" filepath="$PROJECT_DIR$/TabbedCoordinatorLayout/TabbedCoordinatorLayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myprogressbar/myprogressbar.iml" filepath="$PROJECT_DIR$/myprogressbar/myprogressbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/scrollablelayout/scrollablelayout.iml" filepath="$PROJECT_DIR$/scrollablelayout/scrollablelayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/我的红包/我的红包.iml" filepath="$PROJECT_DIR$/我的红包/我的红包.iml" />
     </modules>

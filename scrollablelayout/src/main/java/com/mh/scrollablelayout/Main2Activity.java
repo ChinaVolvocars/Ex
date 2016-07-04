@@ -30,7 +30,7 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
     private ScrollableLayout sl_root;
     private ViewPager vp_scroll;
 
-    private List<BaseFragment> fragments = new ArrayList<>();
+    private List<BaseFragmentScrollable> fragments = new ArrayList<>();
     private RelativeLayout ly_page1;
     private RelativeLayout ly_page2;
     private View line;
@@ -126,7 +126,6 @@ public class Main2Activity extends AppCompatActivity implements PtrHandler, View
         line.requestLayout();
 
         vp_scroll.setAdapter(commAdapter);
-//        vp_scroll.addOnPageChangeListener(this);
         sl_root.getHelper().setCurrentScrollableContainer(fragments.get(0));
 
         ly_page1.setOnClickListener(this);

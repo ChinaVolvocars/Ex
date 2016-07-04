@@ -4425,9 +4425,9 @@
                         "startLine": 3,
                         "startColumn": 4,
                         "startOffset": 57,
-                        "endLine": 9,
+                        "endLine": 8,
                         "endColumn": 12,
-                        "endOffset": 385
+                        "endOffset": 376
                     }
                 }
             },
@@ -4442,12 +4442,11 @@
                 "from": {
                     "file": "D:\\DevelopmentTools\\code\\Ex\\TabbedCoordinatorLayout\\src\\main\\res\\values\\styles.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 545,
-                        "endLine": 15,
-                        "endColumn": 57,
-                        "endOffset": 640
+                        "startOffset": 540,
+                        "endColumn": 90,
+                        "endOffset": 626
                     }
                 }
             },
@@ -4465,10 +4464,10 @@
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 391,
+                        "startOffset": 384,
                         "endLine": 13,
                         "endColumn": 12,
-                        "endOffset": 539
+                        "endOffset": 532
                     }
                 }
             },
@@ -4483,12 +4482,11 @@
                 "from": {
                     "file": "D:\\DevelopmentTools\\code\\Ex\\TabbedCoordinatorLayout\\src\\main\\res\\values\\styles.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 646,
-                        "endLine": 17,
-                        "endColumn": 48,
-                        "endOffset": 731
+                        "startOffset": 634,
+                        "endColumn": 80,
+                        "endOffset": 710
                     }
                 }
             },

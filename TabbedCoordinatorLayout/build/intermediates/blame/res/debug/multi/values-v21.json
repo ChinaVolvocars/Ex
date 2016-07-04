@@ -32,12 +32,11 @@
                 "from": {
                     "file": "D:\\DevelopmentTools\\code\\Ex\\TabbedCoordinatorLayout\\src\\main\\res\\values-v21\\styles.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 171,
-                        "endLine": 6,
-                        "endColumn": 57,
-                        "endOffset": 266
+                        "startOffset": 175,
+                        "endColumn": 90,
+                        "endOffset": 261
                     }
                 }
             },
@@ -53,12 +52,12 @@
                 "from": {
                     "file": "D:\\DevelopmentTools\\code\\Ex\\TabbedCoordinatorLayout\\src\\main\\res\\values-v21\\styles.xml",
                     "position": {
-                        "startLine": 1,
+                        "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 17,
-                        "endLine": 4,
+                        "startOffset": 19,
+                        "endLine": 5,
                         "endColumn": 12,
-                        "endOffset": 165
+                        "endOffset": 167
                     }
                 }
             },
@@ -73,12 +72,11 @@
                 "from": {
                     "file": "D:\\DevelopmentTools\\code\\Ex\\TabbedCoordinatorLayout\\src\\main\\res\\values-v21\\styles.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 272,
-                        "endLine": 8,
-                        "endColumn": 48,
-                        "endOffset": 357
+                        "startOffset": 269,
+                        "endColumn": 80,
+                        "endOffset": 345
                     }
                 }
             },

@@ -18,7 +18,7 @@ import com.mh.scrollablelayout.recyclerloadmore.RecyclerLoadMoreAdapater;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewSimpleFragment extends BaseFragment {
+public class RecyclerViewSimpleFragment extends BaseFragmentScrollable {
 
     private View view;
     private RecyclerView recyclerView;

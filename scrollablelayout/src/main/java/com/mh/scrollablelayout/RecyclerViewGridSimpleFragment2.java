@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewGridSimpleFragment2 extends BaseFragment {
+public class RecyclerViewGridSimpleFragment2 extends BaseFragmentScrollable {
 
     private View view;
     private RecyclerView recyclerView;

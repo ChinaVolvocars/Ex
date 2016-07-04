@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private float hearderMaxHeight;
     private float avatarTop;
     private float maxScrollHeight;
-    private final List<BaseFragment> fragmentList = new ArrayList<>();
+    private final List<BaseFragmentScrollable> fragmentList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
